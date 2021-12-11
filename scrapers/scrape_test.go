@@ -3,8 +3,10 @@ package scrapers_test
 import (
 	"fmt"
 	"io/ioutil"
+	"net"
 	"net/http"
 	"net/url"
+	"strconv"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -51,12 +53,18 @@ var _ = Describe("Scraper", func() {
 		})
 
 		It("scrapes metrics from an app", func() {
+			host, portStr, err := net.SplitHostPort(serverURL.Host)
+			Expect(err).ShouldNot(HaveOccurred())
+			port, err := strconv.Atoi(portStr)
+			Expect(err).ShouldNot(HaveOccurred())
 			route := &models.Route{
-				ID:      "a758f25d-2d01-419e-b63b-de3aabcd9e15",
-				Address: serverURL.Host,
+				ID:             "a758f25d-2d01-419e-b63b-de3aabcd9e15",
+				Address:        host,
+				ServiceAddress: host,
+				ServicePort:    port,
 			}
 
-			resp, err := scraper.Scrape(route, "", "http", http.Header{})
+			resp, err := scraper.Scrape(route, "/metrics", "http", http.Header{})
 			Expect(err).ShouldNot(HaveOccurred())
 			defer resp.Close()
 

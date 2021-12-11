@@ -34,7 +34,7 @@ var _ = Describe("Backend", func() {
 
 			httpTrans, ok := client.Transport.(*http.Transport)
 			Expect(ok).To(BeTrue())
-			Expect(httpTrans.TLSClientConfig.ServerName).To(Equal("my.san"))
+			Expect(httpTrans.TLSClientConfig.ServerName).To(Equal(""))
 			Expect(httpTrans.MaxIdleConns).To(Equal(100))
 			Expect(httpTrans.MaxIdleConnsPerHost).To(Equal(100))
 		})
