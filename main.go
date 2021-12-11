@@ -14,7 +14,6 @@ import (
 
 	"github.com/alecthomas/kingpin"
 	"github.com/gorilla/mux"
-	"github.com/jinzhu/gorm"
 	"github.com/prometheus/common/version"
 	log "github.com/sirupsen/logrus"
 
@@ -96,6 +95,8 @@ func main() {
 	}()
 	defer srv.Close()
 
+	healthCheck.SetHealth(healthchecks.Healthy)
+
 	<-srvCtx.Done()
 
 	ctxShutDown, cancel := context.WithTimeout(context.Background(), 15*time.Second)
@@ -140,18 +141,4 @@ func makeListener(c *config.Config) (net.Listener, error) {
 		return nil, err
 	}
 	return tls.NewListener(listener, tlsConfig), nil
-}
-
-func checkDbConnection(db *gorm.DB) {
-	if db == nil {
-		return
-	}
-	for {
-		err := db.DB().Ping()
-		if err != nil {
-			db.Close()
-			log.Fatalf("Error when pinging database: %s", err.Error())
-		}
-		time.Sleep(5 * time.Minute)
-	}
 }
