@@ -129,7 +129,7 @@ For understanding config definition format:
 
 ### Root configuration in config.yml
 
-```
+```yaml
 # Port for listening
 [ port: <int> | default = 8085]
 
