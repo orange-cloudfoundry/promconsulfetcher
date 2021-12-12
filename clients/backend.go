@@ -26,7 +26,7 @@ func NewBackendFactory(c config.Config) *BackendFactory {
 		factory: FactoryRoundTripper{
 			Template: &http.Transport{
 				DialContext: (&net.Dialer{
-					Timeout:   30 * time.Second,
+					Timeout:   5 * time.Second,
 					KeepAlive: 30 * time.Second,
 					DualStack: true,
 				}).DialContext,

@@ -57,7 +57,11 @@ func (s Scraper) Scrape(route *models.Route, metricPathDefault, metricSchemeDefa
 	if route.ServicePort > 0 {
 		portStr = fmt.Sprintf(":%d", route.ServicePort)
 	}
-	address := route.ServiceAddress + portStr
+	svcAddr := route.ServiceAddress
+	if svcAddr == "" {
+		svcAddr = route.Address
+	}
+	address := svcAddr + portStr
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s://%s%s", scheme, address, endpoint), nil)
 	if err != nil {
 		return nil, err
