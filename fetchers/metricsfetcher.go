@@ -147,21 +147,21 @@ func (f MetricsFetcher) Metric(route *models.Route, metricPathDefault, schemeDef
 		for _, metric := range metricGroup.Metric {
 			metric.Label = f.cleanMetricLabels(
 				metric.Label,
-				"node", "id", "address",
+				"node_name", "node_id", "node_address",
 				"datacenter", "service_name", "service_id",
 				"service_address", "service_port",
 			)
 			metric.Label = append(metric.Label,
 				&dto.LabelPair{
-					Name:  ptrString("node"),
+					Name:  ptrString("node_name"),
 					Value: ptrString(route.Node),
 				},
 				&dto.LabelPair{
-					Name:  ptrString("id"),
+					Name:  ptrString("node_id"),
 					Value: ptrString(route.ID),
 				},
 				&dto.LabelPair{
-					Name:  ptrString("address"),
+					Name:  ptrString("node_address"),
 					Value: ptrString(route.Address),
 				},
 				&dto.LabelPair{
@@ -215,9 +215,9 @@ func (f MetricsFetcher) scrapeError(route *models.Route, err error) map[string]*
 		Name: name,
 		Help: help,
 		ConstLabels: prometheus.Labels{
-			"node":            route.Node,
-			"id":              route.ID,
-			"address":         route.Address,
+			"node_name":       route.Node,
+			"node_id":         route.ID,
+			"node_address":    route.Address,
 			"datacenter":      route.Datacenter,
 			"service_name":    route.ServiceName,
 			"service_id":      route.ServiceID,
@@ -247,9 +247,9 @@ func (f MetricsFetcher) scrapeExternalExporterError(route *models.Route, externa
 		Name: name,
 		Help: help,
 		ConstLabels: prometheus.Labels{
-			"node":            route.Node,
-			"id":              route.ID,
-			"address":         route.Address,
+			"node_name":       route.Node,
+			"node_id":         route.ID,
+			"node_address":    route.Address,
 			"datacenter":      route.Datacenter,
 			"service_name":    route.ServiceName,
 			"service_id":      route.ServiceID,

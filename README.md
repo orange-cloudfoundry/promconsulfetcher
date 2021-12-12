@@ -6,19 +6,9 @@ their port is not accessible by a prometheus instance.
 
 User can retrieve is metrics by simply call `/v1/services/[consul template style query]/metrics` which will merge all
 metrics from service instances and add labels:
-
-"node":            route.Node,
-"id":              route.ID,
-"address":         route.Address,
-"datacenter":      route.Datacenter,
-"service_name":    route.ServiceName,
-"service_id":      route.ServiceID,
-"service_address": route.ServiceAddress,
-"service_port":    strconv.Itoa(route.ServicePort),
-
-- `node`
-- `id`
-- `address`
+- `node_name`
+- `node_id`
+- `node_address`
 - `datacenter`
 - `service_id`
 - `service_name`

@@ -14,14 +14,14 @@ var (
 			Name: "promconsulfetcher_metric_fetch_failed_total",
 			Help: "Number of non fetched metrics without be an normal error.",
 		},
-		[]string{"node", "id", "address", "datacenter", "service_name", "service_id", "service_address", "service_port"},
+		[]string{"node_name", "node_id", "node_address", "datacenter", "service_name", "service_id", "service_address", "service_port"},
 	)
 	MetricFetchSuccessTotal = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "promconsulfetchermetric_fetch_success_total",
 			Help: "Number of fetched metrics succeeded for an app (app instance call are added).",
 		},
-		[]string{"node", "id", "address", "datacenter", "service_name", "service_id", "service_address", "service_port"},
+		[]string{"node_name", "node_id", "node_address", "datacenter", "service_name", "service_id", "service_address", "service_port"},
 	)
 	LatestScrapeRoute = prometheus.NewGaugeVec(
 		prometheus.GaugeOpts{
@@ -41,9 +41,9 @@ var (
 
 func RouteToLabel(route *models.Route) prometheus.Labels {
 	return map[string]string{
-		"node":            route.Node,
-		"id":              route.ID,
-		"address":         route.Address,
+		"node_name":       route.Node,
+		"node_id":         route.ID,
+		"node_address":    route.Address,
 		"datacenter":      route.Datacenter,
 		"service_name":    route.ServiceName,
 		"service_id":      route.ServiceID,
@@ -54,9 +54,9 @@ func RouteToLabel(route *models.Route) prometheus.Labels {
 
 func RouteToLabelNoInstance(route *models.Route) prometheus.Labels {
 	return map[string]string{
-		"node":            route.Node,
-		"id":              route.ID,
-		"address":         route.Address,
+		"node_name":       route.Node,
+		"node_id":         route.ID,
+		"node_address":    route.Address,
 		"datacenter":      route.Datacenter,
 		"service_name":    route.ServiceName,
 		"service_id":      route.ServiceID,
