@@ -13,7 +13,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.15.1
 	github.com/prometheus/client_model v0.4.0
-	github.com/prometheus/common v0.42.0
+	github.com/prometheus/common v0.43.0
 	github.com/russross/blackfriday/v2 v2.1.0
 	github.com/sirupsen/logrus v1.9.0
 	gopkg.in/yaml.v2 v2.4.0
@@ -43,12 +43,11 @@ require (
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/prometheus/procfs v0.9.0 // indirect
-	github.com/rogpeppe/go-internal v1.10.0 // indirect
-	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/sys v0.6.0 // indirect
-	golang.org/x/text v0.7.0 // indirect
-	golang.org/x/tools v0.1.12 // indirect
+	golang.org/x/mod v0.8.0 // indirect
+	golang.org/x/net v0.9.0 // indirect
+	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/text v0.9.0 // indirect
+	golang.org/x/tools v0.6.0 // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
