@@ -1,6 +1,6 @@
 module github.com/orange-cloudfoundry/promconsulfetcher
 
-go 1.17
+go 1.21
 
 require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible
