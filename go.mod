@@ -5,7 +5,7 @@ go 1.21
 require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible
 	github.com/gorilla/handlers v1.5.2
-	github.com/gorilla/mux v1.8.0
+	github.com/gorilla/mux v1.8.1
 	github.com/hashicorp/consul/api v1.26.1
 	github.com/maxbrunsfeld/counterfeiter/v6 v6.7.0
 	github.com/onsi/ginkgo v1.16.5
