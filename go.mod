@@ -1,6 +1,7 @@
 module github.com/orange-cloudfoundry/promconsulfetcher
 
 go 1.21
+toolchain go1.24.1
 
 require (
 	github.com/alecthomas/kingpin v2.2.6+incompatible
@@ -12,7 +13,7 @@ require (
 	github.com/onsi/gomega v1.31.1
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.18.0
-	github.com/prometheus/client_model v0.6.0
+	github.com/prometheus/client_model v0.6.2
 	github.com/prometheus/common v0.47.0
 	github.com/russross/blackfriday/v2 v2.1.0
 	github.com/sirupsen/logrus v1.9.3
@@ -50,7 +51,7 @@ require (
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.17.0 // indirect
-	google.golang.org/protobuf v1.32.0 // indirect
+	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
